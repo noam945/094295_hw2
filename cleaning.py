@@ -103,20 +103,31 @@ def clean_data(dataset_to_clean, n_splits, val_split = False):
 
 def validation_split(dataset):
 
+    new_dataset_path = dataset + "_Split"
     train_dir = os.path.join(dataset, "train")
     dataset = datasets.ImageFolder(train_dir, data_transforms)
     class_names = dataset.classes
-    new_dataset_path = dataset + "_Split"
 
-    shutil.move("data/val", new_dataset_path)
+
+
     train_count = int(0.8 * len(dataset))
     valid_count = len(dataset) - train_count
     train_dataset, val_dataset = torch.utils.data.random_split(dataset, (train_count, valid_count))
-    create_dict_from_dataset(val_dataset, class_names, new_dataset_path + "/val/")
     create_dict_from_dataset(train_dataset, class_names, new_dataset_path + "/train/")
-#     shutil.rmtree("data/train")
-#     shutil.move(new_dataset_path + "/val", "data")
-#     shutil.move(new_dataset_path + "/train", "data")
+    if not os.path.isdir("data"):
+        os.mkdir("data")
+    else:
+        if os.path.isdir("data/train"):
+            shutil.rmtree("data/train")
+
+    if os.path.isdir("data/val"):
+        shutil.move("data/val", new_dataset_path)
+
+    create_dict_from_dataset(val_dataset, class_names, new_dataset_path + "/val/")
+
+    shutil.move(new_dataset_path + "/val", "data")
+    shutil.move(new_dataset_path + "/train", "data")
+
 
 
 

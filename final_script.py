@@ -15,7 +15,7 @@ basic_augmentation(dataset_to_aug)
 dataset_to_aug = "data_Clean_Basic"
 
 print("\n GAN Augmented")
-gan_augmentation(dataset_to_aug, 1000, batch_size=8)
+gan_augmentation(dataset_to_aug, 800, batch_size=8)
 dataset_to_split = "data_Clean_Basic_GAN"
 
 validation_split(dataset_to_split)

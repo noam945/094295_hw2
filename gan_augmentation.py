@@ -48,7 +48,6 @@ def gan_augmentation(dataset_to_aug, num_epochs, batch_size):
     print(class_names)
     create_dict_from_dataset(train_dataset, class_names, new_dataset + "/train/")
 
-
     x0, y0 = train_dataset[0]
     x0 = x0.unsqueeze(0).to(device)
 

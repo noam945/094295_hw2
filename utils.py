@@ -30,7 +30,7 @@ def create_dict_from_dataset(dataset, class_names, name_dict):
             print("Creating a new " + str(class_names[label]) + " directory")
             os.mkdir(name_dict + str(class_names[label]))
 
-        save_image(input, name_dict + str(class_names[label]) + "/first_step" + str(name_counter) + ".jpeg")
+        save_image(input, name_dict + str(class_names[label]) + "/" + str(name_counter) + ".jpeg")
 
 
 
@@ -69,4 +69,5 @@ class FitResult(NamedTuple):
     train_acc: List[float]
     test_loss: List[float]
     test_acc: List[float]
+
 

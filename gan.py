@@ -189,7 +189,7 @@ def save_checkpoint(gen_model, disc_model, dsc_losses, gen_losses, checkpoint_fi
 
     if epochs == 0: min_loss = float('inf')
 
-    if epochs > 200:
+    if epochs > 350:
         loss = (gen_losses[-1] - 10 * dsc_losses[-1])
         if loss < min_loss:
             min_loss = gen_losses[-1]
