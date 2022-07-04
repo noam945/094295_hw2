@@ -114,9 +114,9 @@ def validation_split(dataset):
     train_dataset, val_dataset = torch.utils.data.random_split(dataset, (train_count, valid_count))
     create_dict_from_dataset(val_dataset, class_names, new_dataset_path + "/val/")
     create_dict_from_dataset(train_dataset, class_names, new_dataset_path + "/train/")
-    # shutil.rmtree("data/train")
-    # shutil.move(new_dataset_path + "/val", "data")
-    # shutil.move(new_dataset_path + "/train", "data")
+    shutil.rmtree("data/train")
+    shutil.move(new_dataset_path + "/val", "data")
+    shutil.move(new_dataset_path + "/train", "data")
 
 
 
