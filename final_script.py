@@ -1,4 +1,4 @@
-from cleaning import clean_data
+from cleaning import clean_data, validation_split
 from train_test import train_test
 from basic_augmentation import basic_augmentation
 from gan_augmentation import gan_augmentation
@@ -17,7 +17,9 @@ dataset_to_aug = "data_Clean_Basic"
 
 print("\n GAN Augmented")
 gan_augmentation(dataset_to_aug, 1000, batch_size=8)
-dataset_to_clean = "data_Clean_Basic_GAN"
+dataset_to_split = "data_Clean_Basic_GAN"
+
+validation_split(dataset_to_split)
 
 
 
